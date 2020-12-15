@@ -1,0 +1,17 @@
+
+body{
+    background-color:mintcream;
+    color:seagreen;
+    text-align:center;
+    border:3px solid slategray;
+    font-size: 1.25em
+}
+
+
+.remove {
+    display: none; /* completely removed */
+}
+
+.color6{
+    filter: invert(100%);
+}
