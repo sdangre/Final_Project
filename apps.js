@@ -82,6 +82,10 @@ function draw() {
         var messages = ['Keep going!', 'You can do this!', 'Good job!', 'You rock!', 'Nice Catch!'] 
         let a = clickCount %5
         messagesEl.innerHTML= messages[a]
+        if (a < 0){
+          messagesEl.innerHTML= 'You Lose!'
+          clear()
+        }
     }
 
     //Food
@@ -127,10 +131,6 @@ function keyPressed() {
         changeBackground2Button.addEventListener('click', changeBackground2)
         changeBackgroundButton.addEventListener('click', changeBackground)
     
-
-
-
-
 
 
 
