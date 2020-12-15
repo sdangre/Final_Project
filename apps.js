@@ -6,8 +6,8 @@ let bodyEl=document.getElementById('body')
 let messagesEl=document.getElementById('messages')
 let clickCount = 0
 let countChange = 1
-let changeBackgroundButton= document.getElementById('changeBackground')
-let changeBackground2Button= document.getElementById('changeBackground2')
+let changeBackgroundButton= document.getElementById('Invert')
+let changeBackground2Button= document.getElementById('Restore')
 let checkerboardButton= document.getElementById('checkerboard')
 
 function setup(){
@@ -17,6 +17,7 @@ function setup(){
     pickLocation()
 }
 
+//Random Square Generator
 function pickLocation() {
     var cols = floor(width / scl);
     var rows = floor(height / scl);
@@ -66,10 +67,16 @@ function draw() {
     s.update();
     s.show();
 
+    //Collision Detection/What happens when the squares overlap
     if (s.eat(food)){
         pickLocation();
         clickCount = clickCount + countChange
         scoreEl.innerHTML = clickCount
+
+        if (clickCount === 6) {
+           Invert.classList.remove('remove') 
+           Restore.classList.remove('remove')
+          }
 
         
         var messages = ['Keep going!', 'You can do this!', 'Good job!', 'You rock!', 'Nice Catch!'] 
@@ -82,6 +89,7 @@ function draw() {
     rect(food.x, food.y, scl, scl)
 }
 
+//Keyboard controls
 function keyPressed() {
     if (keyCode === UP_ARROW) {
       s.dir(0, -1);
@@ -97,7 +105,6 @@ function keyPressed() {
   }  
   
   //Buttons
-
     function changeBackground(){
         clickCount= clickCount - 6
         scoreEl.innerHTML= clickCount

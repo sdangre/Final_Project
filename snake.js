@@ -1,7 +1,8 @@
+//Creating the snake object
 function Snake(){
     this.x = 0;
     this.y = 0;
-    this.xspeed = 1;
+    this.xspeed = 1; //creates motion on screen
     this.yspeed = 0;
 
     this.eat = function(pos){
